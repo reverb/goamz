@@ -1,8 +1,9 @@
 package ec2
 
 import (
-	"github.com/crowdmob/goamz/aws"
 	"time"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 func Sign(auth aws.Auth, method, path string, params map[string]string, host string) {
@@ -20,3 +21,5 @@ func FakeTime(fakeIt bool) {
 		timeNow = time.Now
 	}
 }
+
+var PrepareRunParams = prepareRunParams

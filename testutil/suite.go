@@ -2,7 +2,8 @@ package testutil
 
 import (
 	"flag"
-	"github.com/crowdmob/goamz/aws"
+
+	"github.com/casualjim/goamz/aws"
 	"gopkg.in/check.v1"
 )
 

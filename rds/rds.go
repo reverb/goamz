@@ -2,10 +2,11 @@ package rds
 
 import (
 	"encoding/xml"
-	"github.com/crowdmob/goamz/aws"
 	"log"
 	"net/http/httputil"
 	"strconv"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 const debug = true

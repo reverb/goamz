@@ -1,12 +1,13 @@
 package iam_test
 
 import (
-	"github.com/crowdmob/goamz/aws"
-	"github.com/crowdmob/goamz/iam"
-	"github.com/crowdmob/goamz/testutil"
-	"gopkg.in/check.v1"
 	"strings"
 	"testing"
+
+	"github.com/casualjim/goamz/aws"
+	"github.com/casualjim/goamz/iam"
+	"github.com/casualjim/goamz/testutil"
+	"gopkg.in/check.v1"
 )
 
 func Test(t *testing.T) {

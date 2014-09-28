@@ -3,10 +3,11 @@ package sqs
 import (
 	"crypto/md5"
 	"fmt"
-	"github.com/crowdmob/goamz/aws"
-	"gopkg.in/check.v1"
 	"hash"
 	"reflect"
+
+	"github.com/casualjim/goamz/aws"
+	"gopkg.in/check.v1"
 )
 
 var _ = check.Suite(&S{})

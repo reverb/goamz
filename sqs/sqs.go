@@ -13,7 +13,6 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"github.com/crowdmob/goamz/aws"
 	"io"
 	"io/ioutil"
 	"log"
@@ -23,6 +22,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 const debug = false

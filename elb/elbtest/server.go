@@ -6,7 +6,6 @@ package elbtest
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/crowdmob/goamz/elb"
 	"net"
 	"net/http"
 	"net/url"
@@ -14,6 +13,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/casualjim/goamz/elb"
 )
 
 // Server implements an ELB simulator for use in testing.

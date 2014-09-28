@@ -4,11 +4,12 @@ package elb
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/crowdmob/goamz/aws"
 	"net/http"
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 type ELB struct {

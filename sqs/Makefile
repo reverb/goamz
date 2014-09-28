@@ -1,6 +1,6 @@
 include $(GOROOT)/src/Make.inc
 
-TARG=launchpad.net/goamz/sqs
+TARG=github.com/casualjim/goamz/sqs
 
 GOFILES=\
 		sqs.go\

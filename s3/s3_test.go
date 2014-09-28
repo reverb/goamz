@@ -2,14 +2,15 @@ package s3_test
 
 import (
 	"bytes"
-	"github.com/crowdmob/goamz/aws"
-	"github.com/crowdmob/goamz/s3"
-	"github.com/crowdmob/goamz/testutil"
-	"gopkg.in/check.v1"
 	"io/ioutil"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/casualjim/goamz/aws"
+	"github.com/casualjim/goamz/s3"
+	"github.com/casualjim/goamz/testutil"
+	"gopkg.in/check.v1"
 )
 
 func Test(t *testing.T) {

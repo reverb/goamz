@@ -28,10 +28,11 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"github.com/crowdmob/goamz/aws"
 	"net/http"
 	"net/url"
 	"strconv"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 // The SNS type encapsulates operation with an SNS region.

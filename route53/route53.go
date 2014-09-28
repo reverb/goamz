@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"github.com/crowdmob/goamz/aws"
 	"io"
 	"net/http"
 	"strconv"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 type Route53 struct {

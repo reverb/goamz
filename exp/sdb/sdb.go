@@ -22,13 +22,14 @@ package sdb
 
 import (
 	"encoding/xml"
-	"github.com/crowdmob/goamz/aws"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"strconv"
 	"time"
+
+	"github.com/casualjim/goamz/aws"
 )
 
 const debug = false

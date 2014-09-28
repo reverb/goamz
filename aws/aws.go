@@ -92,6 +92,7 @@ type Signer interface {
 //
 // Supplied as an easy way to mock out service calls during testing.
 type AWSService interface {
+	Sign(method, path string, params map[string]string)
 	// Queries the AWS service at a given method/path with the params and
 	// returns an http.Response and error
 	Query(method, path string, params map[string]string) (*http.Response, error)
@@ -130,6 +131,10 @@ func NewService(auth Auth, service ServiceInfo) (s *Service, err error) {
 	}
 	s = &Service{service: service, signer: signer}
 	return
+}
+
+func (s *Service) Sign(method, path string, params map[string]string) {
+	s.signer.Sign(method, path, params)
 }
 
 func (s *Service) Query(method, path string, params map[string]string) (resp *http.Response, err error) {
@@ -342,23 +347,23 @@ func GetAuth(accessKey string, secretKey, token string, expiration time.Time) (a
 }
 
 // EnvAuth creates an Auth based on environment information.
-// The AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment
+// The AWS_ACCESS_KEY and AWS_SECRET_KEY environment
 // variables are used.
 func EnvAuth() (auth Auth, err error) {
-	auth.AccessKey = os.Getenv("AWS_ACCESS_KEY_ID")
+	auth.AccessKey = os.Getenv("AWS_ACCESS_KEY")
 	if auth.AccessKey == "" {
-		auth.AccessKey = os.Getenv("AWS_ACCESS_KEY")
+		auth.AccessKey = os.Getenv("EC2_ACCESS_KEY")
 	}
 
-	auth.SecretKey = os.Getenv("AWS_SECRET_ACCESS_KEY")
+	auth.SecretKey = os.Getenv("AWS_SECRET_KEY")
 	if auth.SecretKey == "" {
-		auth.SecretKey = os.Getenv("AWS_SECRET_KEY")
+		auth.SecretKey = os.Getenv("EC2_SECRET_KEY")
 	}
 	if auth.AccessKey == "" {
-		err = errors.New("AWS_ACCESS_KEY_ID or AWS_ACCESS_KEY not found in environment")
+		err = errors.New("AWS_ACCESS_KEY or EC2_ACCESS_KEY not found in environment")
 	}
 	if auth.SecretKey == "" {
-		err = errors.New("AWS_SECRET_ACCESS_KEY or AWS_SECRET_KEY not found in environment")
+		err = errors.New("AWS_SECRET_KEY or EC2_SECRET_KEY not found in environment")
 	}
 	return
 }

@@ -1,11 +1,12 @@
 package sdb_test
 
 import (
-	"github.com/crowdmob/goamz/aws"
-	"github.com/crowdmob/goamz/exp/sdb"
-	"github.com/crowdmob/goamz/testutil"
-	"gopkg.in/check.v1"
 	"testing"
+
+	"github.com/casualjim/goamz/aws"
+	"github.com/casualjim/goamz/exp/sdb"
+	"github.com/casualjim/goamz/testutil"
+	"gopkg.in/check.v1"
 )
 
 func Test(t *testing.T) {
