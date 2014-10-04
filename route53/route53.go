@@ -90,6 +90,7 @@ type HostedZoneConfig struct {
 
 type CreateHostedZoneResponse struct {
 	XMLName       xml.Name `xml:"CreateHostedZoneResponse"`
+	Xmlns         string   `xml:"xmlns,attr"`
 	HostedZone    HostedZone
 	ChangeInfo    ChangeInfo
 	DelegationSet DelegationSet
@@ -208,6 +209,7 @@ func (r *Route53) query(method string, path string, body io.Reader, result inter
 
 // CreateHostedZone send a creation request to the AWS Route53 API
 func (r *Route53) CreateHostedZone(hostedZoneReq *CreateHostedZoneRequest) (*CreateHostedZoneResponse, error) {
+	hostedZoneReq.Xmlns = "https://route53.amazonaws.com/doc/2013-04-01/"
 	xmlBytes, err := xml.Marshal(hostedZoneReq)
 	if err != nil {
 		return nil, err
