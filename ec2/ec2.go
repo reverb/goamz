@@ -34,7 +34,7 @@ const (
 	legacyAPIVersion = "2011-12-15"
 
 	// AWS API version used for VPC-related calls.
-	vpcAPIVersion = "2013-10-15"
+	vpcAPIVersion = "2014-06-15"
 )
 
 // The EC2 type encapsulates operations with a specific EC2 region.
@@ -131,7 +131,7 @@ var timeNow = time.Now
 // resp = response structure that will get inflated by XML unmarshaling.
 func (ec2 *EC2) query(params map[string]string, resp interface{}) error {
 
-	params["Version"] = "2014-02-01"
+	// params["Version"] = "2014-02-01"
 	params["Timestamp"] = timeNow().In(time.UTC).Format(time.RFC3339)
 	endpoint, err := url.Parse(ec2.Region.EC2Endpoint)
 	if err != nil {
@@ -235,14 +235,20 @@ func addParamsList(params map[string]string, label string, ids []string) {
 // secondary IPs. The number of IP addresses that can be assigned to a
 // network interface varies by instance type.
 type RunNetworkInterface struct {
-	Id                      string
-	DeviceIndex             int
-	SubnetId                string
-	Description             string
-	PrivateIPs              []PrivateIP
-	SecurityGroupIds        []string
-	DeleteOnTermination     bool
-	SecondaryPrivateIPCount int
+	Id                       string
+	DeviceIndex              int
+	SubnetId                 string
+	Description              string
+	PrivateIPs               []PrivateIP
+	SecurityGroupIds         []string
+	DeleteOnTermination      bool
+	SecondaryPrivateIPCount  int
+	AssociatePublicIpAddress bool
+}
+
+type IamInstanceProfile struct {
+	Name string
+	Arn  string
 }
 
 // The RunInstances type encapsulates options for the respective request in EC2.
@@ -267,6 +273,7 @@ type RunInstances struct {
 	PrivateIPAddress      string
 	BlockDeviceMappings   []BlockDeviceMapping
 	NetworkInterfaces     []RunNetworkInterface
+	IamInstanceProfile    IamInstanceProfile
 }
 
 // Response to a RunInstances request.
@@ -383,6 +390,12 @@ func (ec2 *EC2) RunInstances(options *RunInstances) (resp *RunInstancesResp, err
 	if options.PrivateIPAddress != "" {
 		params["PrivateIpAddress"] = options.PrivateIPAddress
 	}
+	if options.IamInstanceProfile.Arn != "" {
+		params["IamInstanceProfile.Arn"] = options.IamInstanceProfile.Arn
+	}
+	if options.IamInstanceProfile.Name != "" {
+		params["IamInstanceProfile.Name"] = options.IamInstanceProfile.Name
+	}
 
 	resp = &RunInstancesResp{}
 	err = ec2.query(params, resp)
@@ -457,6 +470,9 @@ func prepareNetworkInterfaces(params map[string]string, nics []RunNetworkInterfa
 		if ni.SecondaryPrivateIPCount > 0 {
 			val := strconv.Itoa(ni.SecondaryPrivateIPCount)
 			params[prefix+".SecondaryPrivateIpAddressCount"] = val
+		}
+		if ni.AssociatePublicIpAddress {
+			params[prefix+".AssociatePublicIpAddress"] = "true"
 		}
 		for j, ip := range ni.PrivateIPs {
 			k := strconv.Itoa(j)

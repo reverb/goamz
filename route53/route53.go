@@ -256,7 +256,8 @@ func (recordset *ResourceRecordSet) GetValues() []string {
 
 // ChangeResourceRecordSet send a change resource record request to the AWS Route53 API
 func (r *Route53) ChangeResourceRecordSet(req *ChangeResourceRecordSetsRequest, zoneId string) (*ChangeResourceRecordSetsResponse, error) {
-	xmlBytes, err := xml.Marshal(req)
+	req.Xmlns = "https://route53.amazonaws.com/doc/2013-04-01/"
+	xmlBytes, err := xml.MarshalIndent(req, "", "  ")
 	if err != nil {
 		return nil, err
 	}
@@ -264,6 +265,7 @@ func (r *Route53) ChangeResourceRecordSet(req *ChangeResourceRecordSetsRequest, 
 
 	result := new(ChangeResourceRecordSetsResponse)
 	path := fmt.Sprintf("%s/%s/rrset", r.Endpoint, zoneId)
+	fmt.Println("Sending:\n", string(xmlBytes))
 	err = r.query("POST", path, bytes.NewBuffer(xmlBytes), result)
 
 	return result, err

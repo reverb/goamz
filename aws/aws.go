@@ -159,6 +159,7 @@ func (s *Service) Query(method, path string, params map[string]string) (resp *ht
 func (s *Service) BuildError(r *http.Response) error {
 	errors := ErrorResponse{}
 	xml.NewDecoder(r.Body).Decode(&errors)
+	fmt.Printf("%+v", &errors)
 	var err Error
 	err = errors.Errors
 	err.RequestId = errors.RequestId

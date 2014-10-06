@@ -70,6 +70,20 @@ func (ec2 *EC2) DeleteSubnet(id string) (resp *SimpleResp, err error) {
 	return resp, nil
 }
 
+func (ec2 *EC2) ModifySubnet(id string, mapPublicIPOnLaunch bool) (resp *SimpleResp, err error) {
+	params := makeParamsVPC("ModifySubnetAttribute")
+	params["SubnetId"] = id
+	if mapPublicIPOnLaunch {
+		params["MapPublicIpOnLaunch.Value"] = "true"
+	}
+	resp = &SimpleResp{}
+	err = ec2.query(params, resp)
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
+}
+
 // SubnetsResp is the response to a Subnets request.
 //
 // See http://goo.gl/NTKQVI for more details.

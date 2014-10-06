@@ -103,3 +103,20 @@ func (ec2 *EC2) VPCs(ids []string, filter *Filter) (resp *VPCsResp, err error) {
 	}
 	return resp, nil
 }
+
+func (ec2 *EC2) ModifyVPC(id string, enableDNS, enablePublicHostnames bool) (resp *SimpleResp, err error) {
+	params := makeParamsVPC("ModifyVpcAttribute")
+	params["VpcId"] = id
+	if enableDNS && !enablePublicHostnames {
+		params["EnableDnsSupport.Value"] = "true"
+	}
+	if enablePublicHostnames {
+		params["EnableDnsHostnames.Value"] = "true"
+	}
+	resp = &SimpleResp{}
+	err = ec2.query(params, resp)
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
+}
