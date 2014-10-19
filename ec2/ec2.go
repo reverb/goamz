@@ -312,6 +312,7 @@ type Instance struct {
 	Tags               []Tag              `xml:"tagSet>item"`
 	SecurityGroups     []SecurityGroup    `xml:"groupSet>item"`
 	NetworkInterfaces  []NetworkInterface `xml:"networkInterfaceSet>item"`
+	IamInstanceProfile string             `xml:"iamInstanceProfile>arn"`
 }
 
 // RunInstances starts new instances in EC2.
@@ -557,7 +558,7 @@ type Reservation struct {
 //
 // See http://goo.gl/4No7c for more details.
 func (ec2 *EC2) Instances(instIds []string, filter *Filter) (resp *InstancesResp, err error) {
-	params := makeParams("DescribeInstances")
+	params := makeParamsWithVersion("DescribeInstances", "2014-06-15")
 	addParamsList(params, "InstanceId", instIds)
 	filter.addParams(params)
 	resp = &InstancesResp{}
