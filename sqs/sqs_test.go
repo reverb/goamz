@@ -6,7 +6,7 @@ import (
 	"hash"
 	"reflect"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 	"gopkg.in/check.v1"
 )
 

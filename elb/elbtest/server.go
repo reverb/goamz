@@ -14,7 +14,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/casualjim/goamz/elb"
+	"github.com/reverb/goamz/elb"
 )
 
 // Server implements an ELB simulator for use in testing.

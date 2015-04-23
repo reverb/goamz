@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/casualjim/goamz/s3"
+	"github.com/reverb/goamz/s3"
 	"gopkg.in/check.v1"
 )
 

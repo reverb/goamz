@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"strconv"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 const debug = true

@@ -18,7 +18,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/casualjim/goamz/ec2"
+	"github.com/reverb/goamz/ec2"
 )
 
 var b64 = base64.StdEncoding

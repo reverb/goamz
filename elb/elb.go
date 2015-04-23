@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 type ELB struct {

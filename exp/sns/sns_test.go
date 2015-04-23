@@ -3,9 +3,9 @@ package sns_test
 import (
 	"testing"
 
-	"github.com/casualjim/goamz/aws"
-	"github.com/casualjim/goamz/exp/sns"
-	"github.com/casualjim/goamz/testutil"
+	"github.com/reverb/goamz/aws"
+	"github.com/reverb/goamz/exp/sns"
+	"github.com/reverb/goamz/testutil"
 	"gopkg.in/check.v1"
 )
 

@@ -3,7 +3,7 @@ package ec2
 import (
 	"time"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 func Sign(auth aws.Auth, method, path string, params map[string]string, host string) {

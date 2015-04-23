@@ -1,9 +1,9 @@
 package elb_test
 
 import (
-	"github.com/casualjim/goamz/aws"
-	"github.com/casualjim/goamz/elb"
-	"github.com/casualjim/goamz/elb/elbtest"
+	"github.com/reverb/goamz/aws"
+	"github.com/reverb/goamz/elb"
+	"github.com/reverb/goamz/elb/elbtest"
 	"gopkg.in/check.v1"
 )
 

@@ -3,7 +3,7 @@ package kinesis
 import (
 	"fmt"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 type ShardIteratorType string

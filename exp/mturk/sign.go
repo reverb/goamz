@@ -5,7 +5,7 @@ import (
 	"crypto/sha1"
 	"encoding/base64"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 var b64 = base64.StdEncoding

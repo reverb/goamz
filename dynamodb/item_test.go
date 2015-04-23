@@ -1,7 +1,7 @@
 package dynamodb_test
 
 import (
-	"github.com/casualjim/goamz/dynamodb"
+	"github.com/reverb/goamz/dynamodb"
 	"gopkg.in/check.v1"
 )
 

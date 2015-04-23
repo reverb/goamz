@@ -3,8 +3,8 @@ package mturk_test
 import (
 	"fmt"
 
-	"github.com/casualjim/goamz/aws"
-	"github.com/casualjim/goamz/exp/mturk"
+	"github.com/reverb/goamz/aws"
+	"github.com/reverb/goamz/exp/mturk"
 )
 
 var turk *mturk.MTurk

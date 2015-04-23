@@ -15,7 +15,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/casualjim/goamz/kinesis"
+	"github.com/reverb/goamz/kinesis"
 )
 
 // assert fails the test if the condition is false.

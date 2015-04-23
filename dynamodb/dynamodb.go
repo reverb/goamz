@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 type Server struct {

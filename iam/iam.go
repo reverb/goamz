@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 // The IAM type encapsulates operations operations with the IAM endpoint.

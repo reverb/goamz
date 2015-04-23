@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 	//"net/http/httputil"
 	"net/url"
 	"strconv"

@@ -1,8 +1,8 @@
 package ec2_test
 
 import (
-	"github.com/casualjim/goamz/aws"
-	"github.com/casualjim/goamz/ec2"
+	"github.com/reverb/goamz/aws"
+	"github.com/reverb/goamz/ec2"
 	"gopkg.in/check.v1"
 )
 

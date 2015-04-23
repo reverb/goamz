@@ -3,7 +3,7 @@ package autoscaling
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 	"log"
 	"net/http"
 	"net/http/httputil"

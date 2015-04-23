@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/casualjim/goamz/s3"
+	"github.com/reverb/goamz/s3"
 )
 
 const debug = false

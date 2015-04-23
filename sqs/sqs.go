@@ -23,7 +23,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 const debug = false

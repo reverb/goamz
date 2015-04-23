@@ -32,7 +32,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/casualjim/goamz/aws"
+	"github.com/reverb/goamz/aws"
 )
 
 // The SNS type encapsulates operation with an SNS region.
